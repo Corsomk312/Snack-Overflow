@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :votes
   validates :username, presence: true, uniqueness: true
 
-  def authenticate(username, password)
-    self.username == username && self.password == password
+  def authenticate(input_username, input_password)
+    self.username == input_username && self.password == input_password
   end
 
   def password
