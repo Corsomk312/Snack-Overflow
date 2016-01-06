@@ -12,7 +12,7 @@ end
 # create a new question from the form
 post "/users/:user_id/questions" do
   current_user.questions.create(params[:question])
-  redirect "/users/#{@user.id}"
+  redirect "/users/#{current_user.id}"
 end
 
 
