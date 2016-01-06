@@ -1,7 +1,7 @@
 # display all questions
 get '/questions' do
-  @questions = Questions.all
-  erb :"/questions/index"
+  @questions = Question.all
+  erb :"/questions/show"
 end
 
 # get the form to create a question
