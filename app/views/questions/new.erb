@@ -1,0 +1,19 @@
+<div >
+  <h1>Create a Question</h1>
+  <br>
+
+  <center>
+
+  <form action=<%="/users/#{@question.id}"%> method="post">
+    <input type="text" name="question[title]" placeholder="Title">
+    <input type="text" name="question[content]" placeholder="Content">
+    <input id="question-button-rt" type="submit" value="Create this question">
+  </form>
+
+  <form action=<%="/users/#{@question.id}"%> method="get">
+    <input id="card-button" type="submit" value="Cancel">
+  </form>
+
+</center>
+
+</div>
