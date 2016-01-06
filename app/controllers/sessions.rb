@@ -2,7 +2,7 @@ get '/login' do
   erb :'/users/login'
 end
 
-post 'login' do
+post '/login' do
   @user = User.find_by(username: params[:login][:username])
   if @user.authenticate(@user.username, @user.password)
     session[:user_id] = @user.id
