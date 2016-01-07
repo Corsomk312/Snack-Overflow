@@ -6,6 +6,7 @@ class CreateComments < ActiveRecord::Migration
       t.string   :commentable_type
       t.text     :content
 
+
       t.timestamps
     end
   end

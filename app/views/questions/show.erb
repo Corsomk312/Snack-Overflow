@@ -1,0 +1,16 @@
+
+
+
+<form action=<%= "/questions/new" %> method="get">
+    <input id="create-question" type="submit" value="Create A Question">
+</form>
+
+<div >
+  <h1>Question Title</h1>
+</div>
+
+<div >
+	<% @questions.each do |question| %>
+  <a href= <%= "question/#{question.id}" %>> <%= question.title %></a><br><br>
+  <% end %>
+</div>
