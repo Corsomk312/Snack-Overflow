@@ -16,14 +16,14 @@
     <header>
     <nav>
       <ul>
-        <li><a href="/questions">View Questions</a></li>
+        <li><a href="/questions">View Questions</a> | </li>
         <% if session[:user_id] %>
-          <li><a href="/users/<%= session[:user_id] %>">Profile</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="/users/<%= current_user.id %>/questions/new">Ask a New Question!</a></li>
+          <li><a href="/users/<%= session[:user_id] %>">Profile</a> |</li>
+          <li><a href="/logout">Logout</a> | </li>
+          <li><a href="/questions/new">Ask a New Question!</a> | </li>
           <% else %>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/users/new">Register</a></li>
+          <li><a href="/login">Login</a> | </li>
+          <li><a href="/users/new">Register</a> | </li>
         <% end %>
       </ul>
     </nav>
