@@ -20,7 +20,11 @@ end
 
 get '/users/:id' do
   #take user to profile page
-  erb :'/users/profile'
+  if current_user
+    erb :'/users/profile'
+  else
+    redirect '/login'
+  end
 end
 
 delete '/users/:id' do
