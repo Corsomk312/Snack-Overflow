@@ -3,18 +3,20 @@
   <h1> <%=@question.title%></h1>
   <h3> <%=@question.content %></h3>
 
+<h1><%= current_user.id %></h1>
+
+<div id="display_question_comments">
 	<% @question_comments.each do |comment|%>
 		<% if comment.commentable_id == @question.id %>
 		  <div class="comment"><p>Comment <%=comment.id%>:  <%=comment.content%></p></div>
 		<%end%>
 	<%end%>
+	</div>
 		<div>
 			<center>
-			<form action=<%="/questions/#{@question.id}/comments"%> method="post">
+			<form id="submit_question_comment" action=<%="/questions/#{@question.id}/comments"%> method="post">
 		  	<input type="text" name="comment[content]" placeholder="Content" >
-		    <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>" >
-		    <input type="hidden" name="comment[commentable_id]" value="<%= @question.id %>" >
-		    <input type="hidden" name="comment[commentable_type]" value="Question" >
+		
 		    <input id="question-button-rt" type="submit" value="Add comment">
 	  	</form>
 			</center>
@@ -27,18 +29,18 @@
  <div class="answer-container">
   <%@answers.each do |answer|%>
   	<p>Answer <%=answer.id%>:  <%=answer.content%></p>
-		<% answer.comments.each do |comment|%>
-			<% if comment.commentable_id == answer.id %>
-	  		<p>Comment <%=comment.id%>:  <%=comment.content%></p>
-	  	<%end%>
-		<%end%>
+			<div id="display_answer_comments">
+				<% answer.comments.each do |comment|%>
+					<% if comment.commentable_id == answer.id %>
+				  		<p>Comment <%=comment.id%>:  <%=comment.content%></p>
+			  	<%end%>
+				<%end%>
+  		</div>
+  		
 		<div>
 			<center>
-			<form action=<%="/answers/#{answer.id}/comments"%> method="post">
+			<form id="submit_answer_comment" action=<%="/answers/#{answer.id}/comments"%> method="post">
 		  	<input type="text" name="comment[content]" placeholder="Content" >
-		    <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>" >
-		    <input type="hidden" name="comment[commentable_id]" value="<%= answer.id %>" >
-		    <input type="hidden" name="comment[commentable_type]" value="Answer" >
 		    <input id="question-button-rt" type="submit" value="Add comment">
 	  	</form>
 			</center>
