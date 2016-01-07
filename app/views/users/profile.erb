@@ -15,6 +15,13 @@
 
 <% end %>
 
+<h3>Let's look at your comments</h3>
+<% current_user.comments.each do |comment|%>
+<%= comment.content %>
+<hr>
+
+<% end %>
+
 
 <form method="post" action="/logout">
   <button type="submit">Log out</button>

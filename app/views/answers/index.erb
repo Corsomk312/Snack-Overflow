@@ -2,7 +2,7 @@
 <div class="container">
   <h1> <%=@question.title%></h1>
   <h3> <%=@question.content %></h3>
-	
+
 	<% @question_comments.each do |comment|%>
 		<% if comment.commentable_id == @question.id %>
 		  <div class="comment"><p>Comment <%=comment.id%>:  <%=comment.content%></p></div>
@@ -20,14 +20,14 @@
 			</center>
 		</div>
 
-	
+
 
   <a href="/questions/<%=@question.id%>/answers/new">Create an answer</a>
 
  <div id="answer">
   <%@answers.each do |answer|%>
   	<p>Answer <%=answer.id%>:  <%=answer.content%></p>
-		<% @answer_comments.each do |comment|%>
+		<% answer.comments.each do |comment|%>
 			<% if comment.commentable_id == answer.id %>
 	  		<p>Comment <%=comment.id%>:  <%=comment.content%></p>
 	  	<%end%>
@@ -44,6 +44,6 @@
 			</center>
 		</div>
 	<%end%>
- 
+
   </div>
 </div>
