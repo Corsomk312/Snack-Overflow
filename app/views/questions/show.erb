@@ -9,8 +9,17 @@
   <h1>Question Title</h1>
 </div>
 
-<div>
+<div class='question-container'>
 	<% @questions.each do |question| %>
-  <a href= <%= "questions/#{question.id}/answers" %>> <%= question.title %></a><br><br>
+  <article id="<%= question.id %>">
+
+    <a href='/questions/<%= question.id %>/vote' class="vote-button"></a>
+    <a href='/questions/<%= question.id %>/vote' class="down-vote-button"></a>
+    <h2><a href='/questions/<%= question.id %>/answers'><%= question.title %></a></h2>
+    <p>
+      <span class='points'>Total points: <%= question.points %></span>
+    </p>
+  </article>
   <% end %>
 </div>
+
