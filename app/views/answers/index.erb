@@ -22,9 +22,9 @@
 
 
 
-  <a href="/questions/<%=@question.id%>/answers/new">Create an answer</a>
+  <div id="answer_form"><a href="/questions/<%=@question.id%>/answers/new">Create an answer</a></div>
 
- <div id="answer">
+ <div class="answer-container">
   <%@answers.each do |answer|%>
   	<p>Answer <%=answer.id%>:  <%=answer.content%></p>
 		<% answer.comments.each do |comment|%>
