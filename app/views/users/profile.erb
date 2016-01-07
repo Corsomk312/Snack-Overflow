@@ -1,6 +1,19 @@
-<h2>Welcome back, <%= current_user.username.capitalize %>!<h2>
+<h2>Welcome back, <%= current_user.username.capitalize %>!</h2>
 
+<h3>What questions have you asked?</h3>
+<% current_user.questions.each do |question|%>
+<a href="/questions/#{question.id}/answers"><%= question.title %></a>
+<hr>
 
+<% end %>
+
+<h3>What answers have you provided?</h3>
+<% current_user.answers.each do |answer|%>
+
+<%= answer.content %>
+<hr>
+
+<% end %>
 
 
 <form method="post" action="/logout">
