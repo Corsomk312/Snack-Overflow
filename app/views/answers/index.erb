@@ -1,10 +1,13 @@
-<div class="container">
-  <h1>Question <%=@question.title%></h1>
-  <a href="/questions/<%=@question.id%>/answers/new">Create an answer</a>
+<div class="answer-container">
+  <img src="http://ecx.images-amazon.com/images/I/51CtvFc-k0L._SX342_.jpg">
+  <h1><u><%=@question.title%></u></h1>
+
+  <div id="answer_form"><a href="/questions/<%=@question.id%>/answers/new">Create an answer</a></div>
 
  <div id="answer">
   <%@answers.each do |answer|%>
-  <p>Answer <%=answer.id%>:  <%=answer.content%></p>
+  <p>Answer <%=answer.id%>:  <%=answer.content%> <a class="fa fa-sort-desc vote-button"></p>
+  <br>
   <%end%>
   </div>
 </div>
