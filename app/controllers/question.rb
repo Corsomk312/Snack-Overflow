@@ -5,15 +5,15 @@ get '/questions' do
 end
 
 # get the form to create a question
-get "/question/new" do
-	erb :"questions/new"
+get "/questions/new" do
+	erb :"/questions/new"
 end
 
 # create a new question from the form
 post "/questions" do
 	if current_user
-  Question.create(params[:question])
-  redirect "/users/#{current_user.id}"
+	  Question.create(params[:question])
+	  redirect "/users/#{current_user.id}/questions"
 	end
 end
 
