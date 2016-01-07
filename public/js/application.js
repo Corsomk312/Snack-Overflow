@@ -1,23 +1,45 @@
+// $(document).ready(function () {
+//   $("#answer_form").on("click",function(event){
+//     event.preventDefault();
+//      var link = $(this).children()[0];
+//      var route = $(link).attr('href')
+//       $(this).hide()
+
+//       var request = $.ajax({
+//         method: "get",
+//         url: route
+//       });
+
+//       request.done(function(responseData){
+//         console.log(responseData)
+//         $(".answer-container").append(responseData);
+//       });
+
+
+
+//   });
+
+
+// });
+
+
 $(document).ready(function () {
-  $("#answer_form").on("click",function(event){
+  $('#submit_question_comment').submit(function(event){
     event.preventDefault();
-     var link = $(this).children()[0];
-     var route = $(link).attr('href')
-      $(this).hide()
+    // $(".die").remove();
 
-      var request = $.ajax({
-        method: "get",
-        url: route
-      });
+    var params = $(this).serialize();
+    var url = $(this).attr('action')
 
-      request.done(function(responseData){
-        console.log(responseData)
-        $(".answer-container").append(responseData);
-      });
+    var request = $.ajax({
+      method: "POST",
+      url: url,
+      data: params
+    });
 
+    request.done(function(responseData){
+      $("#display_question_comments").append(responseData);
 
-
+    });
   });
-
-
 });
