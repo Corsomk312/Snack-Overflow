@@ -11,17 +11,10 @@
 
 }
 
-/*.comment{
-  border: solid brown 0.5em;
-  border-radius: 50%;
-  margin: 2em;
-  padding: 1em;
-  background-color: #D3B0B0;
-  width: 8em
- /* float: left;
-  clear: both;*/
+.comment{
+  border: solid brown 0.05em;
+  margin:1em;
 }
-*/
 
 nav {
   width: 100%;
