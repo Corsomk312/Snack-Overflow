@@ -9,8 +9,8 @@
 
 <h3>What answers have you provided?</h3>
 <% current_user.answers.each do |answer|%>
-
 <%= answer.content %>
+<p>Question associated with your answer:  <a href="/questions/#{question.id}/answers"><%= answer.question.title %></a></p>
 <hr>
 
 <% end %>

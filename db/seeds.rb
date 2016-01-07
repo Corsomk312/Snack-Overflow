@@ -1,4 +1,4 @@
-# require 'faker'
+require 'faker'
 
 
 
@@ -6,16 +6,16 @@
                 :hashed_password   => 'a' )
 
   User.create!( :username   => 'bb',
-                :hashed_password   => 'b' ) 
+                :hashed_password   => 'b' )
 
   User.create!( :username   => 'cc',
-                :hashed_password   => 'c' ) 
+                :hashed_password   => 'c' )
 
   User.create!( :username   => 'dd',
-                :hashed_password   => 'd' ) 
+                :hashed_password   => 'd' )
 
   User.create!( :username   => 'ee',
-                :hashed_password   => 'e' ) 
+                :hashed_password   => 'e' )
 
 # user_id1 = User.find(1).id
 # user_id2 = User.find(2).id
@@ -24,23 +24,23 @@
 # user_id3 = User.find(3).id
 
 
-  Question.create!(    
+  Question.create!(
                     :user_id => 1,
                     :title => 'First q: Do you like cheese ? ',
                     :content => 'Content: ' + Faker::Hipster.words.join(" ")
                      )
 
-  Question.create!(    
+  Question.create!(
                     :user_id => 1,
                     :title => 'Second q: Do you like cheese ? ',
-                    :content => 'Content: ' + Faker::Hipster.words.join(" ") 
+                    :content => 'Content: ' + Faker::Hipster.words.join(" ")
                      )
 
 
-  question_id = Question.find(1).id # 1 
+  question_id = Question.find(1).id # 1
 
 
-  Answer.create!(    
+  Answer.create!(
                     :user_id => 2,
                     :question_id => question_id,
                     :content => 'Content: ' + Faker::Lorem.sentence,
@@ -83,19 +83,19 @@
                     :commentable_id => 2,
                     :commentable_type => 'Question',
                     :content => 'Content: ' + Faker::Lorem.sentence )
-  
+
   Vote.create!(  :user_id => 5,
                     :voteable_id => 1,
                     :voteable_type => 'Question',
                     :value => 'up' )
-                    
+
 
   Vote.create!(  :user_id => 4,
                     :voteable_id => 1,
                     :voteable_type => 'Question',
                     :value => 'up')
 
- 
+
   Vote.create(  :user_id => 1,
                     :voteable_id => 1,
                     :voteable_type => 'Answer',
@@ -165,4 +165,4 @@
 
 
 
- 
+
