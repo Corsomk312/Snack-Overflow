@@ -9,8 +9,8 @@
   <h1>Question Title</h1>
 </div>
 
-<div >
+<div>
 	<% @questions.each do |question| %>
-  <a href= <%= "question/#{question.id}" %>> <%= question.title %></a><br><br>
+  <a href= <%= "questions/#{question.id}/answers" %>> <%= question.title %></a><br><br>
   <% end %>
 </div>
