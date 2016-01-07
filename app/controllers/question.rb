@@ -12,8 +12,8 @@ end
 # create a new question from the form
 post "/questions" do
 	if current_user
-	  Question.create(params[:question])
-	  redirect "/users/#{current_user.id}/questions"
+	  new_question = Question.create(params[:question])
+	  redirect "/questions/#{new_question.id}/answers"
 	end
 end
 
