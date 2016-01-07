@@ -1,6 +1,7 @@
-HI YOU'RE A USER
+<h2>Welcome back, <%= current_user.username.capitalize %>!<h2>
 
-<%= current_user.username %>
+
+
 
 <form method="post" action="/logout">
   <button type="submit">Log out</button>

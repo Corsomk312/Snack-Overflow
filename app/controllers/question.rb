@@ -5,8 +5,8 @@ get '/questions' do
 end
 
 # get the form to create a question
-get "/question/new" do
-	erb :"questions/new"
+get "/questions/new" do
+	erb :"/questions/new"
 end
 
 # create a new question from the form

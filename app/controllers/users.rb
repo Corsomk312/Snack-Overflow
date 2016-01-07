@@ -10,9 +10,9 @@ end
 post '/users' do
   #take info and create new user in database
   @user = User.create(params[:login])
-  if @user.authenticate(@user.username, @user.password)
+  if @user.authenticate(@user.username, params[:login][:password])
     session[:user_id] == @user.id
-    redirect "/users/#{@user.id}"
+    redirect "/users/#{curent_user.id}"
   else
     redirect '/users/new'
   end
@@ -20,7 +20,7 @@ end
 
 get '/users/:id' do
   #take user to profile page
-  if current_user
+  if current_user.id == session[:user_id]
     erb :'/users/profile'
   else
     redirect '/login'
