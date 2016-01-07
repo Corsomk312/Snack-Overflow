@@ -1,27 +1,168 @@
 # require 'faker'
 
-# User.delete_all
-# Channel.delete_all
-# Subscription.delete_all
 
-# users = 100.times.map do
-#   User.create!( :first_name => Faker::Name.first_name,
-#                 :last_name  => Faker::Name.last_name,
-#                 :email      => Faker::Internet.email,
-#                 :password   => 'password' )
-# end
 
-# channels = ["Telemundo", "Unimas ", "Azteca 13", "Mexiquense",
-#  "ESPN", "Fox Sports", "NBC Sports", "Big Ten Network", "Nickelodeon"].map do |name|
-#   Channel.create!(:name            => name,
-#                   :callsign        => name[0..2].upcase,
-#                   :price_per_month => Faker::Commerce.price)
-# end
+  User.create!( :username   => 'aa',
+                :hashed_password   => 'a' )
 
-# users.each do |user|
-#   user_channels = channels.sample(rand(2..4))
-#   user_channels.each do |channel|
-#     Subscription.create!(user: user,
-#                          channel: channel)
-#   end
-# end
+  User.create!( :username   => 'bb',
+                :hashed_password   => 'b' ) 
+
+  User.create!( :username   => 'cc',
+                :hashed_password   => 'c' ) 
+
+  User.create!( :username   => 'dd',
+                :hashed_password   => 'd' ) 
+
+  User.create!( :username   => 'ee',
+                :hashed_password   => 'e' ) 
+
+# user_id1 = User.find(1).id
+# user_id2 = User.find(2).id
+# user_id3 = User.find(3).id
+# user_id2 = User.find(2).id
+# user_id3 = User.find(3).id
+
+
+  Question.create!(    
+                    :user_id => 1,
+                    :title => 'First q: Do you like cheese ? ',
+                    :content => 'Content: ' + Faker::Hipster.words.join(" ")
+                     )
+
+  Question.create!(    
+                    :user_id => 1,
+                    :title => 'Second q: Do you like cheese ? ',
+                    :content => 'Content: ' + Faker::Hipster.words.join(" ") 
+                     )
+
+
+  question_id = Question.find(1).id # 1 
+
+
+  Answer.create!(    
+                    :user_id => 2,
+                    :question_id => question_id,
+                    :content => 'Content: ' + Faker::Lorem.sentence,
+                    :favorite => false  )
+
+
+  Answer.create!(   :user_id => 3,
+                    :question_id => question_id,
+                    :content => 'Content: ' + Faker::Lorem.sentence,
+                    :favorite => false  )
+
+  Answer.create!(   :user_id => 4,
+                    :question_id => question_id,
+                    :content => 'Content: ' + Faker::Lorem.sentence,
+                    :favorite => false  )
+
+
+  Answer.create!(   :user_id => 5,
+                    :question_id => question_id,
+                    :content => 'Content: ' + Faker::Lorem.sentence,
+                    :favorite => false  )
+
+
+  Comment.create!(  :user_id => 4,
+                    :commentable_id => 1,
+                    :commentable_type => 'Answer',
+                    :content => 'Content: ' + Faker::Lorem.sentence)
+
+  Comment.create!(  :user_id => 5,
+                    :commentable_id => 1,
+                    :commentable_type => 'Answer',
+                    :content => 'Content: ' + Faker::Lorem.sentence)
+
+  Comment.create!(  :user_id => 2,
+                    :commentable_id => 1,
+                    :commentable_type => 'Question',
+                    :content => 'Content: ' + Faker::Lorem.sentence )
+
+  Comment.create!(  :user_id => 3,
+                    :commentable_id => 2,
+                    :commentable_type => 'Question',
+                    :content => 'Content: ' + Faker::Lorem.sentence )
+  
+  Vote.create!(  :user_id => 5,
+                    :voteable_id => 1,
+                    :voteable_type => 'Question',
+                    :value => 'up' )
+                    
+
+  Vote.create!(  :user_id => 4,
+                    :voteable_id => 1,
+                    :voteable_type => 'Question',
+                    :value => 'up')
+
+ 
+  Vote.create(  :user_id => 1,
+                    :voteable_id => 1,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+
+  Vote.create(  :user_id => 2,
+                    :voteable_id => 1,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+  Vote.create(    :user_id => 1,
+                  :voteable_id => 2,
+                  :voteable_type => 'Answer',
+                  :value => 'up')
+
+
+  Vote.create(  :user_id => 2,
+                    :voteable_id => 2,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+  Vote.create(    :user_id => 1,
+                :voteable_id => 2,
+                :voteable_type => 'Answer',
+                :value => 'up')
+
+
+  Vote.create(  :user_id => 2,
+                    :voteable_id => 2,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+  Vote.create(    :user_id => 1,
+              :voteable_id => 3,
+              :voteable_type => 'Answer',
+              :value => 'up')
+
+
+  Vote.create(  :user_id => 2,
+                    :voteable_id => 3,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+  Vote.create(    :user_id => 1,
+            :voteable_id => 4,
+            :voteable_type => 'Answer',
+            :value => 'up')
+
+
+  Vote.create(  :user_id => 2,
+                    :voteable_id => 4,
+                    :voteable_type => 'Answer',
+                    :value => 'up')
+
+
+
+  Vote.create(  :user_id => 3,
+                    :voteable_id => 1,
+                    :voteable_type => 'Comment',
+                    :value => 'up')
+
+  Vote.create(  :user_id => 4,
+                    :voteable_id => 1,
+                    :voteable_type => 'Comment',
+                    :value => 'up')
+
+
+
+ 

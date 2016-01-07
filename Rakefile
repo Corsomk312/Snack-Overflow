@@ -89,13 +89,13 @@ namespace :db do
   desc "Create the database at #{DB_NAME}"
   task :create do
     puts "Creating database #{DB_NAME} if it doesn't exist..."
-    exec("createdb #{DB_NAME}")
+    system("createdb #{DB_NAME}")
   end
 
   desc "Drop the database at #{DB_NAME}"
   task :drop do
     puts "Dropping database #{DB_NAME}..."
-    exec("dropdb #{DB_NAME}")
+    system("dropdb #{DB_NAME}")
   end
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
@@ -121,6 +121,11 @@ end
 desc 'Start IRB with application environment loaded'
 task "console" do
   exec "irb -r./config/environment"
+end
+
+desc 'You only live once'
+task 'yolo' => ['db:drop', 'db:create', 'db:migrate', 'db:seed'] do
+  exec "bundle exec shotgun config.ru"
 end
 
 desc "Run the specs"
