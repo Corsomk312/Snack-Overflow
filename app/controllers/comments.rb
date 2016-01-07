@@ -22,17 +22,12 @@ post '/answers/:answer_id/comments' do
 	@comment = @answer.comments.build(params[:comment])
 	if @comment.save
 		current_user.comments << @comment
-		
 		if request.xhr?
-	    # @comment.comment
 	    erb :'/comments/comment', layout: false
-
-	   # @die_html = '<div>'@die.roll.to_s
 	  else
-
-		@answer_id = params[:answer_id]
-		question = Answer.find(@answer_id).question
-		redirect "/questions/#{question.id}/answers"
+			@answer_id = params[:answer_id]
+			question = Answer.find(@answer_id).question
+			redirect "/questions/#{question.id}/answers"
 	end
 	else
 		@error = "Sorry, server error" # Tell Pamela to display server error in the show answer view
