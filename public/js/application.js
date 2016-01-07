@@ -14,12 +14,7 @@ $(document).ready(function () {
         console.log(responseData)
         $(".answer-container").append(responseData);
       });
-
-
-
   });
-
-
 });
 
 
@@ -53,7 +48,7 @@ $(document).ready(function () {
       $('#submit_answer_comment')[0].reset();
     });
   });
-    
+
 });
 
 
