@@ -1,6 +1,8 @@
 get '/questions/:question_id/answers' do
  @question = Question.find(params[:question_id])
  @answers = @question.answers.all
+ @answer_comments = Comment.where(commentable_type: 'Answer')
+ @question_comments = Comment.where(commentable_type: 'Question')
  erb :'answers/index'
 end
 
