@@ -1,7 +1,10 @@
 <div class="container">
-  <p>Question <%=@question.title%></p>
-  <%@answers.each do |answer|%>
-  <p>Answer:  <%=answer.content%></p>
+  <h1>Question <%=@question.title%></h1>
+  <a href="/questions/<%=@question.id%>/answers/new">Create an answer</a>
 
+ <div id="answer">
+  <%@answers.each do |answer|%>
+  <p>Answer <%=answer.id%>:  <%=answer.content%></p>
   <%end%>
+  </div>
 </div>
