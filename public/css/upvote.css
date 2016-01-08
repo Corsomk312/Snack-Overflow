@@ -32,3 +32,11 @@ div article {
   width: 40%;
 }
 
+body p {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+a {
+  test-decoration: none;
+}
