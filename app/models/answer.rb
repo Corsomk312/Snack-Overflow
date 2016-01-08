@@ -6,4 +6,8 @@ class Answer < ActiveRecord::Base
 
   validates :content, presence: true
 
+  def points
+    self.votes.count
+  end
+
 end

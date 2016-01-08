@@ -9,4 +9,11 @@ class Vote < ActiveRecord::Base
     up - down
   end
 
+  def net_votes_answer(answer_id)
+    answer = Answer.find(answer_id)
+    up = answer.votes.where(value: "up").count
+    down = answer.votes.where(value: "down").count
+    up - down
+  end
+
 end
