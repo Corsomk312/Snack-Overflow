@@ -14,10 +14,10 @@
   <article id="<%= question.id %>">
 
     <a href='/questions/<%= question.id %>/vote' class="vote-button"></a>
-    <a href='/questions/<%= question.id %>/vote' class="down-vote-button"></a>
+    <a href='/questions/<%= question.id %>/downvote' class="down-vote-button"></a>
     <h2><a href='/questions/<%= question.id %>/answers'><%= question.title %></a></h2>
-    <p>
-      <span class='points'>Total points: <%= question.points %></span>
+    <p>Total Points:
+      <span class='points'> <%= question.points %></span>
     </p>
   </article>
   <% end %>
