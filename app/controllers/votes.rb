@@ -4,7 +4,7 @@ get '/questions/:question_id/vote' do
 
   if vote.save
     current_user.votes << vote
-    points = vote.net_votes(params[:question_id])
+    points = vote.net_votes_question(params[:question_id])
     if request.xhr?
       content_type :json
       { points: points}.to_json
@@ -22,7 +22,7 @@ get '/questions/:question_id/downvote' do
 
   if vote.save
     current_user.votes << vote
-    points = vote.net_votes(params[:question_id])
+    points = vote.net_votes_question(params[:question_id])
 
     if request.xhr?
       content_type :json
