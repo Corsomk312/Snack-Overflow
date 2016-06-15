@@ -34,7 +34,7 @@
       <span class='points'> <%= answer.points %></span>
     </p>
   </article>
-  	<p>Answer <%=answer.id%>:  <%=answer.content%></p>
+  	<p class='answer'>Answer <%=answer.id%>:  <%=answer.content%></p>
 			<div id="display_answer_comments">
 				<% answer.comments.each do |comment|%>
 					<% if comment.commentable_id == answer.id %>
